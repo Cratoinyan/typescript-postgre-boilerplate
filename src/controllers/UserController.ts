@@ -23,7 +23,7 @@ class UserController {
         try {
             const client = await pool.connect();
             const sql = 
-            "SELECT \"id\",\"name\",\"lastName\",\"username\",\"wallet-id\",\"deposit\" FROM \"user\" INNER JOIN wallet ON \"user\".id = wallet.\"user-id\"";
+            "SELECT * FROM \"user\" INNER JOIN wallet ON \"user\".id = wallet.\"user-id\"";
             const { rows } = await client.query(sql);
             console.log("query sent :" + sql );
             const todos = rows;
